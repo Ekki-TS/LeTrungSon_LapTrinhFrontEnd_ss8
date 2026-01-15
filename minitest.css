@@ -8,7 +8,6 @@ body {
     background: #f2f6f9;
 }
 
-/* HEADER */
 .header {
     background: #11a4e3;
     color: white;
@@ -29,28 +28,61 @@ body {
 }
 
 .menu {
-    background-color: #E0F2FE;
-    margin: 20px auto;
-    width: 90%;
-    padding: 10px;
-    border-radius: 12px;
+    background: #e7f5ff;
+    padding: 14px 24px;
     text-align: center;
+    border-radius: 14px;
+    margin: 40px auto;
+    width: fit-content;
 }
 
 .menu-item {
     display: inline-block;
-    margin: 0 15px;
-    font-weight: bold;
+    margin: 0 18px;
+    padding: 8px 18px;
+    font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s, color 0.3s;
-    color: #0284C7;
-    border-radius: 15px;
+    border-radius: 12px;
+    transition: 
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
 .menu-item:hover {
-    color: #ffffff;
-    background-color: #0284C7;
-    transform: translateX(-3px);
+    background: #0b8bdc;
+    color: #fff;
+    transform: translateY(-4px);
+}
+
+.home:hover ~ .about,
+.home:hover ~ .doctor,
+.home:hover ~ .service {
+    transform: translateX(10px);
+}
+
+.home:has(+ .about:hover) {
+    transform: translateX(-10px);
+}
+
+.about:hover ~ .doctor,
+.about:hover ~ .service {
+    transform: translateX(10px);
+}
+
+.home:has(+ .about + .doctor:hover),
+.about:has(+ .doctor:hover) {
+    transform: translateX(-10px);
+}
+
+.doctor:hover ~ .service {
+    transform: translateX(10px);
+}
+
+.home:has(+ .about + .doctor + .service:hover),
+.about:has(+ .doctor + .service:hover),
+.doctor:has(+ .service:hover) {
+    transform: translateX(-10px);
 }
 
 .content {
@@ -93,3 +125,4 @@ body {
     padding: 18px 0;
     margin-top: 40px;
 }
+
